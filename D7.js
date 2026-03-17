@@ -3,34 +3,84 @@
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
 
+const concatStrings = (str1, str2) => {
+  const firstPart = str1.slice(0, 2);
+  const secondPart = str2.slice(-3);
+  const result = (firstPart + secondPart).toUpperCase();
+  console.log(result);
+}
+
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
+const generateRandomArray = () => {
+  const randomArray = [];
+  for (let i = 0; i < 10; i++) {
+    randomArray.push(Math.floor(Math.random() * 101));
+  }
+  return randomArray;
+};
+console.log(generateRandomArray());
 
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
+const filterEvenNumbers = (arr) => {
+  return arr.filter(num => num % 2 === 0);
+}
+console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
 
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+const sumArray = (arr) => {
+  let sum = 0;
+  arr.forEach(num => {
+    sum += num;
+  });
+  return sum;
+};
+console.log(sumArray([1, 2, 3, 4, 5]));
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+const sumArrayReduce = (arr) => {
+  return arr.reduce((sum, num) => sum + num, 0);
+};
+console.log(sumArrayReduce([1, 2, 3, 4, 5]));
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
 
+const incrementArray = (arr, n) => {
+  return arr.map(num => num + n);
+}
+console.log(incrementArray([1, 2, 3, 4, 5], 10));
+
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
+const getStringLengths = (arr) => {
+  return arr.map(str => str.length);
+};
+console.log(getStringLengths(["EPICODE", "is", "great"]));
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+const generateOddNumbers = () => {
+  const oddNumbers = [];
+  for (let i = 1; i <= 99; i += 2) {
+    oddNumbers.push(i);
+  }
+  return oddNumbers;
+};
+console.log(generateOddNumbers());
+
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -147,6 +197,7 @@ const movies = [
       'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
   },
 ]
+
 
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
